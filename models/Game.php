@@ -11,6 +11,7 @@ class Game extends Product {
     //inserisco tutto nel costruttore (compreso la nuova proprietà)
     function __construct(
         string $name,
+        string $description,
         float $price,
         string $img,
         int $quantity,
@@ -21,6 +22,7 @@ class Game extends Product {
         //tramite la parola chiave 'parent' mi vado a richiamare la logica del costruttore della superclasse Product
         parent::__construct(
             $name,
+            $description,
             $price,
             $img,
             $quantity,

@@ -27,8 +27,10 @@ ini_set('display_errors', 1);
 
     //e vado a pushare i singoli prodotti che generiamo
     //prodotto generico
+    try {
     $products[] = new Product (
         'Prodotto 1',
+        'Descrizione prodotto 1',
         29.99,
         'https://m.media-amazon.com/images/I/81Gm9vrfoRL._AC_SX679_.jpg',
         5,
@@ -38,6 +40,7 @@ ini_set('display_errors', 1);
     //prodotto generico
     $products[] = new Product (
         'Prodotto 2',
+        'Descrizione prodotto 2',
         19.99,
         'https://cdn.shopify.com/s/files/1/1826/7385/products/cg_mint_900x.jpg?v=1667405784',
         12,
@@ -47,6 +50,7 @@ ini_set('display_errors', 1);
     //prodotto specifico (cibo)
     $products[] = new Food (
         'Cibo 1',
+        'Descrizione cibo 1',
         49.99,
         'https://arcaplanet.vtexassets.com/arquivos/ids/255544/monge-adult-medium-pollo-12kg-600x600.jpg?v=1765124395',
         10,
@@ -57,6 +61,7 @@ ini_set('display_errors', 1);
     //prodotto specifico (gioco)
     $products[] = new Game (
         'Game 1',
+        'Descrizione gioco',
         25.00,
         'https://www.beselettronica.com/userfiles/gioco-gatti-torre-palline-interattivo.jpg',
         5,
@@ -67,12 +72,16 @@ ini_set('display_errors', 1);
     //prodotto specifico (cuccia)
     $products[] = new Kennel (
         'Kennel 1',
+        'Descrizione cuccia',
         105.90,
         'https://m.media-amazon.com/images/I/81pcjpygmzL._AC_SX522_.jpg',
         25,
         $dogsCategory,
         'Large'
     );
+} catch (Exception $e) {
+    echo 'Errore: '.$e->getMessage();
+}
 
     // var_dump($products);
 ?>
@@ -109,7 +118,8 @@ ini_set('display_errors', 1);
                         <div class="card">
                             <img src="<?php echo $product->img; ?>" class="card-img-top w-50" alt="<?php echo $product->img; ?>">
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $product->name; ?></h5>
+                                <h4 class="card-title"><?php echo $product->name; ?></h4>
+                                <h5><?php echo $product->description; ?></h5>
                                 <h6>
                                     <?php echo $product->category->icon; ?>
                                     <?php echo $product->category->name; ?>
