@@ -31,4 +31,3 @@ class Game extends Product {
         $this->material = $material;
     }
 }
-?>

@@ -31,4 +31,3 @@ class Food extends Product {
         $this->expire = $expire;
     }
 }
-?>
